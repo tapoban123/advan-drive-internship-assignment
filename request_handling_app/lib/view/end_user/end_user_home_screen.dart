@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:request_handling_app/utils/utils.dart';
+import 'package:request_handling_app/view/end_user/create_request_screen.dart';
 import 'package:request_handling_app/view/end_user/view_request_screen.dart';
 
 class EndUserHomeScreen extends StatelessWidget {
@@ -10,7 +11,11 @@ class EndUserHomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Requests"), centerTitle: true),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => CreateRequestScreen()),
+          );
+        },
         backgroundColor: Colors.deepPurpleAccent,
         child: Icon(Icons.add, color: Colors.white),
       ),
