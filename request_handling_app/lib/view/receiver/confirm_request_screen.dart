@@ -10,17 +10,25 @@ class ConfirmRequestScreen extends StatelessWidget {
       appBar: AppBar(title: Text("Confirm Request"), centerTitle: true),
       body: Column(
         children: [
-          ListTile(
-            title: Text("Chair"),
-            subtitle: Text("Quantity: 50"),
-            trailing: Checkbox(value: false, onChanged: (value) {}),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 6,
+              shrinkWrap: true,
+              itemBuilder: (context, index) => ListTile(
+                title: Text("Chair"),
+                subtitle: Text("Quantity: 50"),
+                trailing: Checkbox(value: false, onChanged: (value) {}),
+              ),
+            ),
           ),
-          Spacer(),
           Container(
             height: 110,
             width: double.infinity,
             color: Colors.white10,
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+            padding: EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 24,
+            ).copyWith(bottom: 34),
             child: CustomButton(
               onTap: () {},
               bgColor: Colors.orange,

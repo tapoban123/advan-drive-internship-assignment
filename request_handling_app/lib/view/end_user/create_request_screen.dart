@@ -125,6 +125,9 @@ class CreateRequestScreen extends StatelessWidget {
                                       reviewRequestControllerProvider.notifier,
                                     )
                                     .submitRequest();
+                                ref.invalidate(reviewRequestControllerProvider);
+
+                                Navigator.of(context).pop();
                               },
                               bgColor: Colors.green,
                               child: Text(
