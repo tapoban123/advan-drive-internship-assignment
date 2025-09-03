@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:http/http.dart' as http;
+import 'package:web_socket_channel/web_socket_channel.dart';
 
 class RequestsServerServices {
   Future<void> createNewRequest(Map<String, Object?> request) async {
@@ -21,3 +22,14 @@ class RequestsServerServices {
     }
   }
 }
+
+
+Stream requestsChannel({required String requestId}) async* {
+  final channel = WebSocketChannel.connect(
+    Uri.parse('wss://echo.websocket.events'),
+  );
+
+  yield channel.stream;
+}
+
+

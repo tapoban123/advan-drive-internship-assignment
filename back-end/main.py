@@ -32,6 +32,13 @@ def fetch_all_requests():
     return RequestCollection(requests=request_collection.find().to_list())
 
 
+@app.get("/request-ids")
+def fetch_request_ids():
+
+
 @app.websocket("/requests/{request_id}/ws")
 async def update_request(websocket: WebSocket, request_id: str, ):
-    pass
+    await websocket.accept()
+    while True:
+        data = await websocket.receive_text()
+
